@@ -1,0 +1,35 @@
+tasks = []
+
+while True:
+    print("\n=== Assignment Tracker ===")
+    print("1 - Add task")
+    print("2 - Show tasks")
+    print("3 - Exit")
+
+    choice = input("Choose an option: ")
+
+    if choice == "1":
+        name = input("Task name: ").strip()
+        deadline = input("Deadline: ").strip()
+
+        if name == "" or deadline == "":
+            print("Task name and deadline cannot be empty!")
+            continue
+
+        tasks.append([name, deadline])
+        print("Task added!")
+
+    elif choice == "2":
+        if not tasks:
+            print("No tasks yet.")
+        else:
+            print("\nYour Tasks:")
+            for i, t in enumerate(tasks, start=1):
+                print(f"{i}. {t[0]} (Deadline: {t[1]})")
+
+    elif choice == "3":
+        print("Bye!")
+        break
+
+    else:
+        print("Invalid option.")
